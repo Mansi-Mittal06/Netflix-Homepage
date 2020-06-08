@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body{
+ background-color:black;
+}
+.accordion {
+  background-color: rgb(93, 95, 105);
+  color: white;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+  transition: 0.4s;
+}
+.active, .accordion:hover {
+  background-color: #ccc;
+}
+
+.accordion:after {
+  content: '\002B';
+  color: #777;
+  font-weight: bold;
+  float: right;
+  margin-left: 5px;
+}
+
+.active:after {
+  content: "\2212";
+}
+.panel {
+  padding: 0 18px;
+  background-color: white;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+}
+
+button {
+   text-align:right;
+   background-color:red;
+  border: none;
+  color: white;
+  padding: 25px 40px;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 30px;
+  margin: 4px 2px;
+   
+  
+ 
+}
+h1{
+  color:white
+}
+section{
+ background-image:url("https://wallpapercave.com/wp/wp1917122.jpg");
+ height:1000px;
+}
+nav{
+ float-left;
+ 
+ padding: 20px 20px;
+}
+#t{
+ font-size:100px;
+ text-align:center;
+ color:white;
+}
+table, th {
+  border-radius:10px;
+  background-color:white;
+  width:1000px;
+  height:50px;
+  margin:auto;
+  padding:auto;
+}
+#addr{
+text-align:left
+}
+#try{
+background-color:red;
+width:350px;
+color:white;
+}
+#text{
+font-size:50px;
+color:white;
+}
+#te{
+ font-size:50px;
+color:white;
+text-align:right;
+}
+#hgt{
+ 
+}
+
+</style>
+</head>
+<body>
+<section>
+<header>
+<li><img src="data:image/png;base64,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" width="300px" height="100px"></li>
+<nav>
+<button>Sign in</button>
+</nav>
+</header>
+<div>
+<p id="t">Unlimited movies,<br/>
+TV shows and more.</p>
+<h1><center>Watch anywhere. Cancel anytime.</center></h1>
+</div>
+<table align="center">
+<tr>
+<th id="addr">Email Address</th>
+<th id="try"><h1><strong>Try it now</strong></h1></th>
+</tr>
+</table>
+</section>
+<article>
+<img src="https://images.unsplash.com/photo-1560169897-fc0cdbdfa4d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" align="right" width="400px" height="350px">
+<p id="text">Enjoy on your TV.</p>
+<h2><p style="color:white","text-align:left">Watch on smart TVs, PlayStation, Xbox, Chromecast,<br/> Apple TV, Blu-ray players and more.</p></h2>
+</article>
+<pre>
+
+
+
+
+
+
+
+
+
+</pre>
+<article>
+<img src="https://images.unsplash.com/photo-1520966324358-40c3723e15d1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" align="left" width="400px" height="300px">
+<p id="te">Download your shows<br/> to watch offline.<p>
+<h2><p id="hgt">Save your favourites easily and<br/> always have something to watch.</p></h2>
+</article>
+<pre>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</pre>
+<article>
+<p><center><h1><strong>Frequently Asked Question</strong></h1></center><p>
+<button class="accordion">What is netflix?</button>
+<div class="panel">
+<p> Netflix is a streaming service that offers a wide variety of award-winning TV shows, movies, anime,
+ documentaries and more – on thousands of internet-connected devices.<br/>
+
+You can watch as much as you want, whenever you want, without a single ad – all for one low monthly price.
+ There's always something new to discover, and new TV shows and movies are added every week!</p>
+</div>
+
+<button class="accordion">How Much Does Netflix Cost?</button>
+<div class="panel">
+  <p>Watch Netflix on your smartphone, tablet, Smart TV, laptop, or streaming device, all for one fixed monthly fee. 
+  Plans range from ₹ 199 to ₹ 799 a month. No extra costs, no contracts.</p>
+</div>
+<button class="accordion">Where Can I watch?</button>
+<div class="panel">
+  <p> Watch anywhere, anytime, on an unlimited number of devices. Sign in with your Netflix account to watch instantly on the web at netflix
+  .com from your personal computer or on any internet-connected device that offers the Netflix app, including smart TVs, smartphones, tablets, streaming media players and game consoles.
+</p>
+<p>
+You can also download your favourite shows with the iOS, Android, or Windows 10 app. Use downloads to watch while you're on the go and</p>
+</div>
+<button class="accordion">How Do I Cancel?</button>
+<div class="panel">
+  Netflix is flexible. There are no annoying contracts and no commitments. You can easily cancel your account online in two clicks.
+  There are no cancellation fees – start or stop your account anytime.
+  </div>
+  </div>
+<button class="accordion">What I Can Watch On Netflix?</button>
+<div class="panel">
+  Netflix has an extensive library of feature films,documentaries, TV shows, anime, award-winning Netflix originals, and more. Watch as much as you want, anytime you want.
+  </div>
+  </article>
+  <script>
+var acc = document.getElementsByClassName("accordion");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var panel = this.nextElementSibling;
+    if (panel.style.maxHeight) {
+      panel.style.maxHeight = null;
+    } else {
+      panel.style.maxHeight = panel.scrollHeight + "px";
+    } 
+  });
+}
+</script>
+</body>
+</html>
